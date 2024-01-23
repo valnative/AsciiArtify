@@ -4,64 +4,16 @@
 ## Модуль 4. Основи Kubernetes
 ### Завдання на перевірку
 
-Ваша команда оформила підписку на моніторинговий сервіс Uptime Robot.
+Після успішного завершення PoC команда «AsciiArtify» готова перейти до розгортання MVP.
 
-Це надає можливість користувачам відстежувати статус в реальному часі.
+MVP є мінімальним продуктом з основними функціями, необхідними для того, щоб перевірити продукт на фокус-групі користувачів. На цьому етапі розробники додають додаткові функції, фіксять баги та вдосконалюють продукт на основі отриманого від користувачів фідбеку.
 
-Приклад Status Page https://status.uptimerobot.com
+З боку DevOps для цього потрібно створити додаток у ArgoCD, який буде відслідковувати Git репозиторій продукту https://github.com/den-vasyliev/go-demo-app та налаштувати автоматичну синхронізацію.
 
-Вам надано інструкцію по заведенню на моніторинг ваших ресурсів.
+Після успішного налаштування ArgoCD можна запустити повний цикл, щоб продемонструвати, як ArgoCD автоматично відслідковує та синхронізує зміни з Git репозиторію та розгортає їх на Kubernetes кластері.
 
-To set up monitoring using Uptime Robot:
+Результатом завдання буде коротке демо у репозиторії проєкту, що демонструє як працює додаток, розгорнутий за допомогою налаштованої вами інфраструктурі. 
 
-Log in to your Uptime Robot account or create a new account if you don't have one already.
-Once logged in, navigate to the dashboard or main menu.
-Look for the option to add a new monitor and click on it.
-Select the "Keyword" monitor type from the available options.
-Provide a friendly name or label for the monitor to easily identify it.
-Enter the specific keyword or phrase that you want to monitor in the provided field.
-Choose the appropriate settings for the monitoring interval and timeout duration.
-Specify any additional advanced settings or alert configurations as needed.
-Save the monitor settings to activate it.
-Uptime Robot will now start monitoring the specified keyword on the designated website or page.
-That's it! By setting up a Keyword monitor in Uptime Robot, you can receive alerts or notifications whenever the specified keyword is not found or present on the monitored webpage. This can help you ensure the availability and proper functioning of critical content or elements on your website or online service.
+Приклад налаштувань можна знайти у відео Coding Session. 
 
-Для реалізації цієї задачі вам необхідно  виконати два завдання.
-
-Важливе зауваження! При розгортанні реальної інфраструктури, особливо з використанням GCP free credits, потрібно приділяти увагу затратам часу та коштів. Рекомендуємо виконувати завдання послідовно без відтермінування в часі, оскільки це допоможе заощадити ресурси. Якщо ви не впевнені, що зможете виконати два завдання одночасно, рекомендуємо розгортати кластери під кожне завдання окремо. Після успішної перевірки, не забудьте видалити кластер командою gcloud
-
-Завдання 1 
-1 спроба, 5 балів
-
-1. Розгорніть Kubernetes кластер на Google Cloud за допомогою gcloud cli
-
-2. Після отримання доступу до кластеру, створіть deployment v1.0.0 що повертає версію “Version: 1.0.0”
-
-3. Налаштуйте сервіс типу LoadBalancer та отримайте IP-адресу
-
-4. Налаштуйте Monitor Type Keyword у Uptime Robot вказавши IP-адресу балансера та Keyword “Version: 1.0.0”
-
-5. Моніторингова система перевірить в реальному часі доступність першої версії
-
-6. Налаштуйте публічну status page додавши до неї перший Monitoring
-
-Завдання 2
-1 спроба, 5 балів
-
-7. Наступним кроком внесіть зміни у програму, збілдайте та запуште нову версію контейнеру у контейнер реєстр
-
-8. Створить новий деплоймент з версію образу v2.0.0
-
-9. Переведіть трафік з першої на другу версію методами: Canary (25%) та Blue-Green (100%) Deployment
-
-10. По завершенню тестування, залишіть активною v2.0.0 на 100%
-
-11. Налаштуйте Monitor Type Keyword у Uptime Robot вказавши IP-адресу балансера та Keyword “Version: 2.0.0”
-
-12. Моніторингова система перевірить в реальному часі доступність другої версії
-
-13. Налаштуйте публічну status page додавши до неї другий Monitoring
-
-Надішліть у відповідь посилання на Status Page з історією перевірок.
-
-Приклад формату відповіді: https://stats.uptimerobot.com/Zm6V0FMoO7
+Відповіддю на завдання буде посилання на репозиторій AsciiArtify з вбудованим демо, що демонструє роботу продукту на розгорнутій вами інфраструктурі (Файл doc/MVP.md у форматі Markdown, гілка main)
